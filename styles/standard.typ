@@ -41,6 +41,27 @@
     it
   }
 
+  let capitalize(it) = {
+    let s = str(it)
+    
+    if s.len() > 0 {
+      let chars = s.clusters()
+      let first = upper(chars.at(0))
+      let rest = chars.slice(1).join()
+      first + rest
+    } else {
+      it
+    }
+  }
+
+  show outline.entry: it => {
+    show it.body().text: b => capitalize(lower(b.text))
+    link(
+      it.element.location(),
+      it.indented(it.prefix(), it.inner())
+    ) 
+  }
+
 
   show list: it => { context {
     let depth = counter(list).get().at(0)
