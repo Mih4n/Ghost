@@ -2,6 +2,6 @@
 #import "curse-title.typ" as curse-title
 
 #let pages = (
-  "title": title-page.page
+  "title": title-page.page,
   "curse-title": curse-title.page
 )
